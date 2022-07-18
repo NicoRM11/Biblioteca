@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Biblioteca Egg</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h2>Modificacion de editorial</h2>
+            </div>
+        </header>
+
+        <div class="container">
+            <form th:action="@{/editorial/modificar/__${editorial.id}__}" method="POST">
+                 
+                 <input hidden th:value="${editorial.id}" name="id">
+
+                <div th:if ="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error %</h5>
+                        <p class="card-text" th:text = "${error}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="mb-2">Cargar editoriales</label>
+
+                    <input th:value="${editorial.nombre}" type="text" class="form-group" name = "nombre" placeholder="Nombre de editorial">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+    </body>
+</html>

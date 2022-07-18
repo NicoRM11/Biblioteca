@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid position-relative bg-danger p-2 text-dark bg-opacity-75">
+                <a class="navbar-brand" th:href="@{/}"><img th:src="@{'/bibliotecaImagen.jpg'}" class="rounded-pill"
+                        alt="libros biblioteca" width="250" height="90"></a>
+                <span class="position-absolute top-50 start-50 translate-middle fs-4 fst-italic">
+                    ¡Bienvenid@ a biblioteca!
+                </span>
+                <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute top-50 end-0 translate-middle-y ">
+                        <li class="nav-item border border-danger">
+                            <a class="nav-link active" aria-current="page" th:href="@{/login}">Iniciar sesion</a>
+                        </li>
+                        <li class="nav item border border-danger">
+                            <a class="nav-link active" aria-current="page" th:href="@{/registrar}">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>

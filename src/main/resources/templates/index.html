@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Inicio biblioteca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light" th:replace = "/fragments/navbar :: nav"></nav>
+        </header>
+
+        <div th:if = "${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <section class="container-fluid position-relative">
+            <div class="position-absolute top-0 start-0">
+                <img th:src="@{'/bibliotecaImagen2.jpg'}" alt="biblioteca" width="650" height="500">
+            </div>
+            <div class="position-absolute top-0 end-0" style="margin-top: 250px ; margin-right: 280px;">
+                <span class="fs-5 fw-bold">Carga tus libros aqui</span>
+            </div>
+            <div class="position-absolute top-0 end-0" style="margin-top: 300px ; margin-right: 320px;">
+                <a  th:href="@{/registrar}"><button type="button" class="btn btn-danger">¡Registrate!</button></a>
+            </div>
+
+        </section>
+
+    </body>
+
+</html>

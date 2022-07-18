@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Biblioteca Egg</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h2>Modificacion de autor</h2>
+            </div>
+        </header>
+
+        <div class="container">
+            <form th:action="@{/libro/modificar/__${libro.isbn}__}" method="POST">
+
+
+                <div th:if ="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error %</h5>
+                        <p class="card-text" th:text = "${error}"></p>
+                    </div>
+                </div>
+
+                <input hidden th:value="${libro.isbn}" name="isbn">
+
+                <div class="form-group">
+                    <label class="mb-2">Actualizar libro</label>
+
+                    <input th:value="${libro.titulo}" type="text" class="form-group" name = "titulo" placeholder="Nombre del titulo">
+
+                    <input th:value="${libro.ejemplares}" type="text" class="form-group" name = "ejemplares" placeholder="Cantidad de ejemplares">
+
+                    <div class="form-group">
+                        <select name="idAutor"> 
+                            
+                            <option value="">Seleccionar Autor</option>
+
+                            <option th:each="autor : ${autores}"
+                                    th:value = "${autor.id}"
+                                    th:text = "${autor.nombre}"/>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="idEditorial">
+                            <option value="">Seleccionar Editorial</option>
+
+                            <option th:each="editorial : ${editoriales}"
+                                    th:value = "${editorial.id}"
+                                    th:text = "${editorial.nombre}"/>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+    </body>
+</html>
+
